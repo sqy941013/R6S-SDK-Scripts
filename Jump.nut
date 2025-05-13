@@ -85,7 +85,7 @@ function UpdateJump() {
         local landingCheckRayEnd = Vector3(currentOrigin.x, currentOrigin.y, predictedNextZ - groundCheckDistance);
         local landingRayResult = Game.Raycast(landingCheckRayStart, landingCheckRayEnd, 1);
 
-        if (landingRayResult.DidHit() && landingRayResult.Hits().len() > 0) {
+        if (landingRayResult.DidHit()) {
             local hitGroundZ = landingRayResult.Hits()[0].Origin().z;
             // If predicted Z is at or below the detected ground, and we are moving downwards
             if (predictedNextZ <= hitGroundZ + groundSnapOffset && verticalVelocity <= 0) {
